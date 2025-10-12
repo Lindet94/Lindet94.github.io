@@ -1,40 +1,107 @@
-// Optional: small visual upgrades while keeping it simple
-// This file is picked up automatically by minima if named custom.scss under assets/css
+// ─────────────────────────────────────────────
+// Custom CSS for Erik's Jekyll Site
+// ─────────────────────────────────────────────
 
+// 1. Font and base text styling
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
-// Improve readability
-.post-content {
+body {
+    font-family: "Inter", sans-serif;
     line-height: 1.75;
+    color: #1c1c1c;
+    background-color: #fff;
+    max-width: 850px;
+    /* cleaner reading width */
+    margin: auto;
+    padding: 1.5rem;
 }
 
+// 2. Headings
+h1,
+h2,
+h3 {
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    color: #222;
+    margin-top: 1.5rem;
+}
 
-// Card-like lists on blog index
+h2 {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.3rem;
+}
+
+// 3. Improve readability
+.post-content {
+    line-height: 1.75;
+    font-size: 1.05rem;
+}
+
+// 4. Blog index list styling
 ul {
     list-style: none;
     padding-left: 0;
 }
 
 ul>li {
-    padding: 0.75rem 1rem;
-    margin: 0.5rem 0;
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: #f9f9f9;
+    padding: 0.9rem 1.2rem;
+    margin: 0.8rem 0;
     border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
 }
 
+ul>li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
 
-// Code blocks
+// 5. Links
+a {
+    color: #0078ff;
+    text-decoration: none;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+a:hover {
+    color: #0059b3;
+    text-decoration: underline;
+}
+
+// 6. Code blocks
 .highlighter-rouge pre {
     padding: 1rem;
     border-radius: 12px;
     overflow: auto;
+    background: #f4f4f4;
+    border: 1px solid #e0e0e0;
+    font-size: 0.9rem;
 }
 
+// 7. Dark mode tweaks
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #0f1116;
+        color: #e0e0e0;
+    }
 
-// Links
-a {
-    text-decoration: none;
-}
+    ul>li {
+        background: #1c1f26;
+        border-color: rgba(255, 255, 255, 0.08);
+    }
 
-a:hover {
-    text-decoration: underline;
+    a {
+        color: #4dabf7;
+    }
+
+    a:hover {
+        color: #91c9ff;
+    }
+
+    .highlighter-rouge pre {
+        background: #181c24;
+        border-color: #2b2f38;
+    }
 }
