@@ -1,107 +1,215 @@
 // ─────────────────────────────────────────────
-// Custom CSS for Erik's Jekyll Site
+// Fancy-but-subtle styling for Erik's site
 // ─────────────────────────────────────────────
 
-// 1. Font and base text styling
+/* Theme tokens */
+:root {
+    --accent: #0078ff;
+    --accent-2: #6aa6ff;
+    --card-bg: #f9f9f9;
+    --text: #1c1c1c;
+    --muted: #666;
+    --radius: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --accent: #4dabf7;
+        --accent-2: #91c9ff;
+        --card-bg: #1c1f26;
+        --text: #e0e0e0;
+        --muted: #a5a5a5;
+    }
+}
+
+/* Base layout + font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: "Inter", sans-serif;
+    font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    color: var(--text);
     line-height: 1.75;
-    color: #1c1c1c;
-    background-color: #fff;
-    max-width: 850px;
-    /* cleaner reading width */
+    max-width: 860px;
     margin: auto;
     padding: 1.5rem;
 }
 
-// 2. Headings
+/* Headings with accent bar */
 h1,
 h2,
 h3 {
     font-weight: 600;
-    letter-spacing: -0.5px;
-    color: #222;
-    margin-top: 1.5rem;
+    letter-spacing: -0.3px;
 }
 
 h2 {
-    border-bottom: 2px solid #eee;
-    padding-bottom: 0.3rem;
+    position: relative;
+    padding-top: 0.6rem;
+    margin-top: 2rem;
 }
 
-// 3. Improve readability
-.post-content {
-    line-height: 1.75;
-    font-size: 1.05rem;
+h2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 64px;
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
 }
 
-// 4. Blog index list styling
+/* Links: animated underline (no layout shift) */
+a {
+    color: var(--accent);
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    background-position: 0 100%;
+    transition: background-size 160ms ease, color 160ms ease;
+}
+
+a:hover,
+a:focus {
+    background-size: 100% 2px;
+}
+
+a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Blog list → cards with gentle hover lift */
 ul {
     list-style: none;
     padding-left: 0;
 }
 
 ul>li {
-    background: #f9f9f9;
-    padding: 0.9rem 1.2rem;
+    background: var(--card-bg);
+    padding: 1rem 1.25rem;
     margin: 0.8rem 0;
-    border-radius: 12px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    transition: all 0.2s ease;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: var(--radius);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
 }
 
 ul>li:hover {
     transform: translateY(-2px);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.10);
+    border-color: rgba(0, 0, 0, 0.12);
 }
 
-// 5. Links
-a {
-    color: #0078ff;
-    text-decoration: none;
-    transition: color 0.2s ease, text-decoration 0.2s ease;
+/* Post meta/excerpt polish (matches your blog.md classes) */
+.post-date {
+    color: var(--muted);
 }
 
-a:hover {
-    color: #0059b3;
-    text-decoration: underline;
+.post-excerpt {
+    margin: 0.25rem 0 0;
 }
 
-// 6. Code blocks
+/* Code blocks */
 .highlighter-rouge pre {
     padding: 1rem;
-    border-radius: 12px;
+    border-radius: var(--radius);
     overflow: auto;
-    background: #f4f4f4;
-    border: 1px solid #e0e0e0;
-    font-size: 0.9rem;
+    background: #f4f6f8;
+    border: 1px solid #e3e7ee;
+    font-size: 0.95rem;
 }
 
-// 7. Dark mode tweaks
 @media (prefers-color-scheme: dark) {
-    body {
-        background-color: #0f1116;
-        color: #e0e0e0;
-    }
-
-    ul>li {
-        background: #1c1f26;
-        border-color: rgba(255, 255, 255, 0.08);
-    }
-
-    a {
-        color: #4dabf7;
-    }
-
-    a:hover {
-        color: #91c9ff;
-    }
-
     .highlighter-rouge pre {
         background: #181c24;
         border-color: #2b2f38;
     }
+}
+
+/* Blockquotes */
+blockquote {
+    margin: 1rem 0;
+    padding: 0.75rem 1rem;
+    border-left: 4px solid var(--accent);
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    blockquote {
+        background: rgba(255, 255, 255, 0.04);
+    }
+}
+
+/* Nice buttons for CTAs (turn any link into a button with class="btn") */
+.btn {
+    display: inline-block;
+    padding: 0.55rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    color: white !important;
+    font-weight: 600;
+    transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* Header/footer tweaks (Minima selectors) */
+.site-title a {
+    font-weight: 600;
+    letter-spacing: -0.2px;
+}
+
+.site-nav .page-link {
+    margin-right: 0.5rem;
+}
+
+/* Reduce motion if user prefers */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        transform: none !important;
+    }
+}
+
+/* Keep your existing rules (readability, links, etc.) */
+.post-content {
+    line-height: 1.75;
+    font-size: 1.05rem;
+}
+
+/* ────────────────────────────── */
+/* Fancy button hover animation  */
+/* ────────────────────────────── */
+
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.25);
+    transform: skewX(-25deg);
+    transition: left 0.4s ease;
+}
+
+.btn:hover::after {
+    left: 200%;
 }
