@@ -213,3 +213,44 @@ blockquote {
 .btn:hover::after {
     left: 200%;
 }
+
+/* Hero wrapper (put on index.md around your intro) */
+.hero {
+    position: relative;
+    padding: 2.5rem 1.5rem;
+    border-radius: 16px;
+    overflow: hidden;
+    isolation: isolate;
+    background: var(--card-bg);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: -40% -10% auto -10%;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(120px 120px at 30% 40%, var(--accent), transparent 60%),
+        radial-gradient(160px 160px at 70% 60%, var(--accent-2), transparent 60%);
+    filter: blur(40px);
+    opacity: 0.25;
+    animation: floaty 14s ease-in-out infinite alternate;
+    z-index: -1;
+}
+
+@keyframes floaty {
+    from {
+        transform: translateY(-6px) translateX(-8px) scale(1.02);
+    }
+
+    to {
+        transform: translateY(6px) translateX(8px) scale(1.06);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero::before {
+        animation: none;
+    }
+}
