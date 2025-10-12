@@ -1,0 +1,47 @@
+title: "Erik — Cloud Engineer"
+description: "Technical blog, notes, and resume of a cloud platform engineer (Azure, Python, DevOps)."
+
+author:
+  name: "Erik"
+  email: "erik.lindmaa@gmail.com"
+  github_username: Lindet94
+  linkedin: erik-lindmaa-8761b1116
+  location: "Gothenburg, Sweden"
+
+url: "https://Lindet94.github.io" # update if using a custom domain
+baseurl: "" # keep empty for user/organization pages
+
+# Theme & plugins
+remote_theme: jekyll/minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-optional-front-matter
+  - jekyll-include-cache
+
+# Build options
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Navigation (shows in header)
+minima:
+  skin: auto # auto = light/dark by system preference
+  social_links:
+    github: Lindet94
+    linkedin: erik-lindmaa-8761b1116
+    rss: /feed.xml
+
+header_pages:
+  - blog.md
+  - resume.md
+  - contact.md
+
+# Permalinks & collections
+permalink: /blog/:year/:month/:day/:title/
+
+# Exclude anything you don't want processed
+exclude:
+  - README.md

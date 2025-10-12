@@ -1,0 +1,40 @@
+// Optional: small visual upgrades while keeping it simple
+// This file is picked up automatically by minima if named custom.scss under assets/css
+
+
+// Improve readability
+.post-content {
+    line-height: 1.75;
+}
+
+
+// Card-like lists on blog index
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul>li {
+    padding: 0.75rem 1rem;
+    margin: 0.5rem 0;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+}
+
+
+// Code blocks
+.highlighter-rouge pre {
+    padding: 1rem;
+    border-radius: 12px;
+    overflow: auto;
+}
+
+
+// Links
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
