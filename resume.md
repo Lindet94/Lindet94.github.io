@@ -10,8 +10,8 @@ Cloud Platform Engineer (Azure) with strengths in automation, infrastructure-as-
 
 
 ## Skills
-- **Cloud**: Azure (Networking, App Services, Functions, Storage, Static Web Apps)
-- **Infra as Code**: Terraform, Bicep, ARM
+- **Cloud**: Azure (Networking, App Services, Functions, Storage, Logic Apps, Power Automate)
+- **Infrastructure as Code**: Bicep, ARM
 - **DevOps**: GitHub Actions, CI/CD, Observability, GitOps (ArgoCD)
 - **Languages**: Python, Bash, PowerShell, YAML/JSON
 - **M365/Entra**: Graph, automation, governance
@@ -19,16 +19,17 @@ Cloud Platform Engineer (Azure) with strengths in automation, infrastructure-as-
 
 ## Experience
 **Cloud Platform Engineer — Aurobay**
-*YYYY–Present, Gothenburg*
+*2024–Present, Gothenburg*
 - Highlights or bullet points of impact and outcomes.
 - Example: Migrated scripts to **app-only** auth with certificates; reduced failures by 90%.
 
 
 ## Education & Certs
-- B.Sc. (or courses) — University / Year
-- AZ-104 (in progress)
+- B.Sc. Software Engineering and Management — Gothenburg University / 2024
+- AZ-900
+- AZ-204 (In Progress)
 
 
 ## Links
-- GitHub: https://github.com/your-github
-- LinkedIn: https://www.linkedin.com/in/your-linkedin-handle
+- [GitHub](https://github.com/Lindet94)
+- [LinkedIn](https://www.linkedin.com/in/erik-lindmaa-8761b1116)
